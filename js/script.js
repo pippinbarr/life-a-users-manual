@@ -1,13 +1,20 @@
 /**
-Title of Project
-Author Name
+Life: A User's Manual
+Pippin Barr
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+A game about the meaning of life, based on Passage. But less interactive. But better.
 */
 
 "use strict";
 
+
+let circle = {
+    x: 0,
+    y: 0,
+    vx: 5,
+    radius: 50,
+    color: `#ff0000`
+};
 
 /**
 Description of preload
@@ -21,7 +28,10 @@ function preload() {
 Description of setup
 */
 function setup() {
+    createCanvas(640, 640);
 
+    circle.x = -circle.radius;
+    circle.y = height / 2;
 }
 
 
@@ -29,5 +39,12 @@ function setup() {
 Description of draw()
 */
 function draw() {
+    background(0);
 
+    circle.x += circle.vx;
+
+    push();
+    fill(circle.color);
+    ellipse(circle.x, circle.y, circle.radius);
+    pop();
 }
